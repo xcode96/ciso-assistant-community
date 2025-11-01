@@ -1,0 +1,12 @@
+# render.yaml - uses your docker-compose.yml (recommended)
+services:
+  - type: web
+    name: ciso-assistant-community
+    env: docker
+    dockerComposePath: ./docker-compose.yml
+    autoDeploy: true
+    plan: free
+    envVars:
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "0.0.0.0"
+      # DATABASE_URL and admin credentials are secrets — set them in Render Dashboard, not here.
